@@ -63,10 +63,11 @@ export default class Badge extends React.Component<BadgeProps, any> {
     } = this.props;
     let displayCount;
     let displayComponent;
-    if(typeof count === "string" || typeof count === "number"){
+    if (typeof count === "string" || typeof count === "number") {
       displayCount = (count as number) > (overflowCount as number) ? `${overflowCount}+` : count;
+    } else {
+      displayComponent = count;
     }
-    else displayComponent = count;
     const countAsTitle = (typeof count === "string" || typeof count === "number") ? count : null;
     const isZero = displayCount === '0' || displayCount === 0;
     const isDot = (dot && !isZero) || status;
@@ -111,7 +112,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
         data-show={!hidden}
         className={scrollNumberCls}
         count={displayCount}
-        displayComponent = {displayComponent}
+        displayComponent={displayComponent}
         title={title || countAsTitle}
         style={styleWithOffset}
         key="scrollNumber"
