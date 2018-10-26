@@ -22,7 +22,7 @@ const Option = Select.Option;
 
 class Demo extends React.Component {
   state = {
-    tabPosition: 'top',
+    tabPosition: 'bottom',
   }
 
   changeTabPosition = (tabPosition) => {
@@ -39,10 +39,8 @@ class Demo extends React.Component {
             onChange={this.changeTabPosition}
             dropdownMatchSelectWidth={false}
           >
-            <Option value="top">top</Option>
             <Option value="bottom">bottom</Option>
-            <Option value="left">left</Option>
-            <Option value="right">right</Option>
+
           </Select>
         </div>
         <Tabs tabPosition={this.state.tabPosition}>
